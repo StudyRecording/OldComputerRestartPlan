@@ -1,0 +1,26 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: auth
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        file-extension: yaml
+        group: DEFAULT_GROUP
+        prefix: ${spring.application.name}
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/plan?serverTimezone=UTC&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: hu970218
+
+
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
